@@ -1,0 +1,60 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  vars:
+    homebrew_taps:
+      - caskroom/cask
+
+    homebrew_packages:
+      - { name: ansible }
+      - { name: brew-cask }
+      - { name: git }
+      - { name: jq }
+      - { name: python }
+      - { name: tmux }
+      - { name: tree }
+      - { name: wget }
+      - { name: zsh }
+      - { name: zsh-completions }
+
+    homebrew_cask_packages:
+      - dockertoolbox
+      - dropbox
+      - slack
+      - skitch
+      - vagrant
+      - virtualbox
+
+  tasks:
+    # brew tap
+    - name: install taps of homebrew
+      homebrew_tap: tap="{{ item }}" state=present
+      with_items: homebrew_taps
+      tags:
+        - brew
+
+    # brew update
+    - name: update homebrew
+      homebrew: update_homebrew=yes
+      tags:
+        - brew
+
+    # brew instal
+    - name: install homebrew packages
+      homebrew: name="{{ item.name }}" state="{{ item.state|default('latest') }}" install_options="{{ item.install_options|default() }}"
+      with_items: homebrew_packages
+      tags:
+        - brew
+
+    # brew cask install
+    - name: update brew-cask
+      homebrew: name=brew-cask state=latest
+      tags:
+        - brew
+    - name: install homebrew cask packages
+      homebrew_cask: name="{{ item }}" state=present
+      with_items: homebrew_cask_packages
+      tags:
+        - brew
