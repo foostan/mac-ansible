@@ -10,6 +10,7 @@
     homebrew_packages:
       - { name: ansible }
       - { name: brew-cask }
+      - { name: ghq }
       - { name: git }
       - { name: jq }
       - { name: python }
