@@ -1,0 +1,29 @@
+---
+homebrew_taps:
+  - caskroom/cask
+
+homebrew_packages:
+  - { name: ansible }
+  - { name: brew-cask }
+  - { name: ghq }
+  - { name: git }
+  - { name: jq }
+  - { name: python }
+  - { name: tmux }
+  - { name: tree }
+  - { name: wget }
+  - { name: zsh }
+  - { name: zsh-completions }
+
+homebrew_cask_packages:
+  - alfred
+  - bettertouchtool
+  - dockertoolbox
+  - dropbox
+  - firefox
+  - intellij-idea
+  - iterm2
+  - karabiner
+  - slack
+  - vagrant
+  - virtualbox
