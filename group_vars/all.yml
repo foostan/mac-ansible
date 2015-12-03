@@ -4,11 +4,19 @@ homebrew_taps:
 
 homebrew_packages:
   - { name: ansible }
+  - { name: cmake }
   - { name: brew-cask }
+  - { name: fish }
   - { name: ghq }
   - { name: git }
   - { name: jq }
+  - { name: libmagic }
+  - { name: mysql }
+  - { name: rbenv }
+  - { name: peco }
   - { name: python }
+  - { name: readline }
+  - { name: rbenv }
   - { name: tmux }
   - { name: tree }
   - { name: wget }
