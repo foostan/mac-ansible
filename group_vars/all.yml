@@ -6,6 +6,7 @@ homebrew_packages:
   - { name: ansible }
   - { name: cmake }
   - { name: brew-cask }
+  - { name: brew-pip }
   - { name: fish }
   - { name: ghq }
   - { name: git }
